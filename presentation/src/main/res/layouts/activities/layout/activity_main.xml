@@ -265,6 +265,14 @@
             android:name="com.lightteam.modpeide.presentation.main.fragments.FragmentExplorer"
             tools:layout="@layout/fragment_explorer"/>
 
+        <fragment
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:id="@+id/fragment_reference"
+            android:name="com.lightteam.modpeide.presentation.main.fragments.FragmentReference"
+            tools:layout="@layout/fragment_explorer"/>
+
     </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>
