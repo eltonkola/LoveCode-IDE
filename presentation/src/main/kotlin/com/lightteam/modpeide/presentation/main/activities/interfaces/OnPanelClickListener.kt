@@ -46,4 +46,6 @@ interface OnPanelClickListener {
     fun onRedoButton()
 
     fun onSettingsButton()
+
+    fun onRunButton()
 }

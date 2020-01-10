@@ -53,6 +53,9 @@ class ToolbarManager(
         setMenuClickListener(binding.actionMenuSearch, R.menu.menu_search)
         setMenuClickListener(binding.actionMenuTools, R.menu.menu_tools)
 
+        binding.actionMenuRun.setOnClickListener { listener.onRunButton() }
+
+
         binding.actionMenuUndo.setOnClickListener { listener.onUndoButton() }
         binding.actionMenuRedo.setOnClickListener { listener.onRedoButton() }
     }

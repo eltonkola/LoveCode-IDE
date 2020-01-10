@@ -76,7 +76,7 @@ class MainViewModel(
 
     val canUndo: ObservableBoolean = ObservableBoolean(false) //Кликабельность кнопки Undo
     val canRedo: ObservableBoolean = ObservableBoolean(false) //Кликабельность кнопки Redo
-
+    val canRun: ObservableBoolean = ObservableBoolean(true)
     // endregion UI
 
     // region EVENTS
@@ -147,7 +147,11 @@ class MainViewModel(
     fun defaultLocation(): FileModel
             = fileRepository.defaultLocation()
 
+    var currentFolder = defaultLocation()
+
     fun provideDirectory(path: FileModel) {
+
+        currentFolder = path
         filesLoadingIndicator.set(true)
         fileRepository.provideDirectory(path)
             .map { files ->

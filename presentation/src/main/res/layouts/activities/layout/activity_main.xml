@@ -138,7 +138,7 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_toLeftOf="@id/action_menu_overflow"
+                    android:layout_toLeftOf="@id/action_menu_run"
                     android:padding="10.5dp"
                     android:visibility="visible"
                     android:src="@drawable/ic_redo"
@@ -147,6 +147,19 @@
                     android:id="@+id/action_menu_redo"
                     android:clickable="@{viewModel.canRedo}"
                     android:contentDescription="@string/description_icon"/>
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_toLeftOf="@id/action_menu_overflow"
+                    android:padding="10.5dp"
+                    android:visibility="visible"
+                    android:src="@drawable/ic_play"
+                    android:tint="@{viewModel.canRun ? @android:color/white : @color/colorIcon}"
+                    android:background="@drawable/ripple_20dp"
+                    android:id="@+id/action_menu_run"
+                    android:clickable="@{viewModel.canRun}"
+                    android:contentDescription="@string/description_icon" />
 
                 <ImageView
                     android:layout_width="45dp"

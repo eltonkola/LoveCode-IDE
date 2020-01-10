@@ -23,7 +23,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.text.InputType
 import android.view.Gravity
 import android.view.View
@@ -54,14 +56,18 @@ import com.lightteam.modpeide.presentation.common.dialogs.DialogStore
 import com.lightteam.modpeide.presentation.main.activities.interfaces.OnPanelClickListener
 import com.lightteam.modpeide.presentation.main.activities.utils.ToolbarManager
 import com.lightteam.modpeide.presentation.main.customview.ExtendedKeyboard
+import com.lightteam.modpeide.presentation.main.fragments.FragmentExplorer
 import com.lightteam.modpeide.presentation.main.viewmodel.MainViewModel
 import com.lightteam.modpeide.presentation.settings.activities.SettingsActivity
+import com.lightteam.modpeide.utils.ZipperFile
 import com.lightteam.modpeide.utils.commons.TypefaceFactory
 import com.lightteam.modpeide.utils.extensions.launchActivity
 import com.lightteam.modpeide.utils.extensions.makeRightPaddingRecursively
 import com.lightteam.modpeide.utils.extensions.toHexString
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
+import org.love2d.android.GameActivity
 import java.io.File
+import java.lang.Exception
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(),
@@ -620,6 +626,47 @@ class MainActivity : BaseActivity(),
     override fun onSettingsButton() {
         launchActivity<SettingsActivity>()
     }
+
+    override fun onRunButton() {
+        //get current path from fragment
+        //fragment_explorer
+        val fm = supportFragmentManager.findFragmentById(R.id.fragment_explorer) as FragmentExplorer
+
+        Toast.makeText(this, fm.viewModel.currentFolder.path, Toast.LENGTH_SHORT).show()
+
+
+        val compileGamePath = "${Environment.getExternalStorageDirectory().absolutePath}/compiled.love"
+        val oldFile = File(compileGamePath)
+        if(oldFile.exists()){
+            oldFile.delete()
+        }
+        Toast.makeText(this, "compileGamePath: $compileGamePath", Toast.LENGTH_SHORT).show()
+        ZipperFile()
+            .zipAll(fm.viewModel.currentFolder.path, compileGamePath)
+            .subscribe({
+                Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show()
+                openGame(compileGamePath)
+            }, {
+                it.printStackTrace()
+                Toast.makeText(this, "Error ${it.message}", Toast.LENGTH_SHORT).show()
+
+            })
+
+
+
+    }
+
+    fun openGame(path: String){
+        val lojaFile = File(path)
+        if(lojaFile.exists()) {
+            val intent = Intent(this, GameActivity::class.java)
+            intent.data = Uri.fromFile(lojaFile)
+            startActivity(intent)
+        }else{
+            Toast.makeText(this, "UPS, file does not exist!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
     // endregion OTHER
 }

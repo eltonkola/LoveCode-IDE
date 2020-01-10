@@ -27,7 +27,7 @@ android {
     compileSdkVersion buildConfig.compile_sdk
     buildToolsVersion buildConfig.build_tools
     defaultConfig {
-        applicationId "com.LightTeam.modpeidepro"
+        applicationId "com.eltonkola.codelove"
 
         minSdkVersion buildConfig.min_sdk
         targetSdkVersion buildConfig.target_sdk

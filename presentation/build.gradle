@@ -98,4 +98,8 @@ dependencies {
     androidTestImplementation testLibrary.junit_ext
     androidTestImplementation testLibrary.test_runner
     androidTestImplementation testLibrary.espresso_core
+
+    implementation 'com.github.love2d:love-android:11.3a'
+    implementation 'org.zeroturnaround:zt-zip:1.13'
+
 }
