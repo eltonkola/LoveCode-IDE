@@ -149,9 +149,6 @@ class MainViewModel(
 
     var currentFolder = defaultLocation()
 
-    fun resumeBrowse(){
-        provideDirectory(FileConverter.toModel(File(fileRepository.getLastPath())))
-    }
 
     fun provideDirectory(path: FileModel) {
 
@@ -386,6 +383,9 @@ class MainViewModel(
         document?.let {
             loadFile(it)
         }
+        val lastDir = FileConverter.toModel(File(fileRepository.getLastPath()))
+        provideDirectory(lastDir)
+        fileTabsEvent.value = lastDir
     }
 
     fun saveToCache(documentModel: DocumentModel, text: String) {
