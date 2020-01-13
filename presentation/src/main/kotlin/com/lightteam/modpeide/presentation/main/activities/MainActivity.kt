@@ -36,6 +36,7 @@ import android.widget.Toast
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
@@ -189,6 +190,11 @@ class MainActivity : BaseActivity(),
             override fun onDrawerClosed(drawerView: View) {}
             override fun onDrawerOpened(drawerView: View) {
                 closeKeyboard()
+                if(binding.drawerLayout.isDrawerOpen(GravityCompat.END)){
+                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN,  Gravity.RIGHT)
+                }else{
+                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED,  Gravity.RIGHT)
+                }
             }
         })
         binding.scroller.link(binding.editor)
@@ -687,6 +693,11 @@ class MainActivity : BaseActivity(),
 
 
     // endregion OTHER
+
+    fun closeReference(){
+        binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED,  Gravity.RIGHT)
+        binding.drawerLayout.closeDrawer(GravityCompat.END)
+    }
 }
 
 fun Disposable.autoDispose(compositeDisposable: CompositeDisposable) {

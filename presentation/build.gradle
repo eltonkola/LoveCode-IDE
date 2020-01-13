@@ -101,5 +101,6 @@ dependencies {
 
     implementation 'com.github.love2d:love-android:11.3a'
     implementation 'org.zeroturnaround:zt-zip:1.13'
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
 
 }

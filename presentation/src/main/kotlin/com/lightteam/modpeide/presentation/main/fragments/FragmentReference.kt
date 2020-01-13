@@ -42,6 +42,7 @@ import com.lightteam.modpeide.data.utils.commons.FileSorter
 import com.lightteam.modpeide.data.utils.extensions.isValidFileName
 import com.lightteam.modpeide.databinding.FragmentExplorerBinding
 import com.lightteam.modpeide.domain.model.FileModel
+import com.lightteam.modpeide.presentation.main.activities.MainActivity
 import com.lightteam.modpeide.presentation.main.activities.MainActivity.Companion.REQUEST_READ_WRITE
 import com.lightteam.modpeide.presentation.main.activities.MainActivity.Companion.REQUEST_READ_WRITE2
 import com.lightteam.modpeide.presentation.main.adapters.BreadcrumbAdapter
@@ -72,6 +73,9 @@ class FragmentReference  : DaggerFragment(),
 
         web_view.loadUrl("file:///android_asset/reference.html")
 
+        but_close.setOnClickListener {
+            (activity as MainActivity).closeReference()
+        }
 
 //        val parentActivity = activity as AppCompatActivity
 //        parentActivity.setSupportActionBar(binding.toolbar)
