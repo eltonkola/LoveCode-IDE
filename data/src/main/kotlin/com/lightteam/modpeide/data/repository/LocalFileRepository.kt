@@ -42,9 +42,15 @@ class LocalFileRepository(
 
     private val FOLDER_PATH = "FOLDER_PATH"
 
-    private val defaultLocation: File = File(sharedPreferences.getString(FOLDER_PATH, Environment.getExternalStorageDirectory().absolutePath))
+    private val defaultLocation: File = Environment.getExternalStorageDirectory().absoluteFile
 
     // region EXPLORER
+
+
+    override fun getLastPath(): String {
+        val sdcard = Environment.getExternalStorageDirectory().absolutePath
+        return sharedPreferences.getString(FOLDER_PATH, sdcard) ?: sdcard
+    }
 
     private fun updateLastBrowsedFolder(path: String){
         sharedPreferences.edit().putString(FOLDER_PATH, path).apply()
@@ -55,7 +61,10 @@ class LocalFileRepository(
     }
 
     override fun provideDirectory(parent: FileModel): Single<List<FileModel>> {
-        updateLastBrowsedFolder(parent.path)
+        if(parent.path != defaultLocation.path){
+            updateLastBrowsedFolder(parent.path)
+        }
+
         return Single.create { emitter ->
             val files = FileConverter.toFile(parent)
                 .listFiles()

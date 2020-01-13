@@ -149,6 +149,10 @@ class MainViewModel(
 
     var currentFolder = defaultLocation()
 
+    fun resumeBrowse(){
+        provideDirectory(FileConverter.toModel(File(fileRepository.getLastPath())))
+    }
+
     fun provideDirectory(path: FileModel) {
 
         currentFolder = path

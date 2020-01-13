@@ -24,7 +24,7 @@ import io.reactivex.Completable
 import io.reactivex.Single
 
 interface FileRepository {
-
+    fun getLastPath(): String
     fun defaultLocation(): FileModel
     fun provideDirectory(parent: FileModel): Single<List<FileModel>>
 

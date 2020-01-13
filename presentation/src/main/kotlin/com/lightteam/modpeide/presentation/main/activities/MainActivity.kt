@@ -100,6 +100,8 @@ class MainActivity : BaseActivity(),
         setupListeners()
         setupObservers()
         checkPermissions()
+
+        viewModel.resumeBrowse()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

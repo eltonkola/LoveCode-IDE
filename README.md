@@ -58,3 +58,9 @@ limitations under the License.
 ### SCREENSHOTS
 
 ![Image](.images/screenshots.png)
+
+
+#
+Use termux on android:
+
+https://www.techrepublic.com/article/how-to-install-git-on-android/
