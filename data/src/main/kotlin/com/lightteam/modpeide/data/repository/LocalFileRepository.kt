@@ -17,6 +17,7 @@
 
 package com.lightteam.modpeide.data.repository
 
+import android.content.SharedPreferences
 import android.os.Environment
 import com.lightteam.modpeide.data.converter.DocumentConverter
 import com.lightteam.modpeide.data.converter.FileConverter
@@ -35,18 +36,26 @@ import java.io.File
 import java.io.FileNotFoundException
 
 class LocalFileRepository(
-    private val database: AppDatabase
+    private val database: AppDatabase,
+    private val sharedPreferences: SharedPreferences
 ) : FileRepository {
 
-    private val defaultLocation: File = Environment.getExternalStorageDirectory().absoluteFile
+    private val FOLDER_PATH = "FOLDER_PATH"
+
+    private val defaultLocation: File = File(sharedPreferences.getString(FOLDER_PATH, Environment.getExternalStorageDirectory().absolutePath))
 
     // region EXPLORER
+
+    private fun updateLastBrowsedFolder(path: String){
+        sharedPreferences.edit().putString(FOLDER_PATH, path).apply()
+    }
 
     override fun defaultLocation(): FileModel {
         return FileConverter.toModel(defaultLocation)
     }
 
     override fun provideDirectory(parent: FileModel): Single<List<FileModel>> {
+        updateLastBrowsedFolder(parent.path)
         return Single.create { emitter ->
             val files = FileConverter.toFile(parent)
                 .listFiles()

@@ -18,6 +18,7 @@
 package com.lightteam.modpeide.internal.di.modules.main
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModelProviders
 import com.lightteam.modpeide.data.delegate.DataLayerDelegate
 import com.lightteam.modpeide.data.repository.LocalFileRepository
@@ -51,8 +52,8 @@ class MainActivityModule {
 
     @Provides
     @PerActivity
-    fun provideFileRepository(database: AppDatabase): FileRepository
-            = LocalFileRepository(database)
+    fun provideFileRepository(database: AppDatabase, sharedPreferences: SharedPreferences): FileRepository
+            = LocalFileRepository(database, sharedPreferences)
 
     @Provides
     @PerActivity

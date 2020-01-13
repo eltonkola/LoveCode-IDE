@@ -64,6 +64,9 @@ import com.lightteam.modpeide.utils.commons.TypefaceFactory
 import com.lightteam.modpeide.utils.extensions.launchActivity
 import com.lightteam.modpeide.utils.extensions.makeRightPaddingRecursively
 import com.lightteam.modpeide.utils.extensions.toHexString
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
+import io.reactivex.rxkotlin.addTo
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
 import org.love2d.android.GameActivity
 import java.io.File
@@ -627,6 +630,13 @@ class MainActivity : BaseActivity(),
         launchActivity<SettingsActivity>()
     }
 
+    private var disposables = CompositeDisposable()
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposables.dispose()
+    }
+
     override fun onRunButton() {
         //get current path from fragment
         //fragment_explorer
@@ -640,6 +650,14 @@ class MainActivity : BaseActivity(),
         if(oldFile.exists()){
             oldFile.delete()
         }
+
+        val mainFile = File(fm.viewModel.currentFolder.path, "main.lua")
+
+        if(fm.viewModel.currentFolder.path == Environment.getExternalStorageDirectory().path || !mainFile.exists()){
+            Toast.makeText(this, "Invalid project path!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         Toast.makeText(this, "compileGamePath: $compileGamePath", Toast.LENGTH_SHORT).show()
         ZipperFile()
             .zipAll(fm.viewModel.currentFolder.path, compileGamePath)
@@ -650,17 +668,17 @@ class MainActivity : BaseActivity(),
                 it.printStackTrace()
                 Toast.makeText(this, "Error ${it.message}", Toast.LENGTH_SHORT).show()
 
-            })
-
+            }).autoDispose(disposables)
 
 
     }
 
-    fun openGame(path: String){
+    private fun openGame(path: String){
         val lojaFile = File(path)
         if(lojaFile.exists()) {
             val intent = Intent(this, GameActivity::class.java)
             intent.data = Uri.fromFile(lojaFile)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
             startActivity(intent)
         }else{
             Toast.makeText(this, "UPS, file does not exist!", Toast.LENGTH_SHORT).show()
@@ -669,4 +687,11 @@ class MainActivity : BaseActivity(),
 
 
     // endregion OTHER
+}
+
+fun Disposable.autoDispose(compositeDisposable: CompositeDisposable) {
+    if (this is CompositeDisposable) {
+        throw IllegalArgumentException("Cannot put a composite disposable into another one.")
+    }
+    this.addTo(compositeDisposable)
 }
