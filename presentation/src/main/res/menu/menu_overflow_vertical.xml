@@ -18,6 +18,76 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item
+        android:id="@+id/action_menu_file"
+        android:title="@string/menu_file"
+        android:icon="@drawable/ic_folder"
+        app:iconTint="@color/colorIcon">
+        <menu>
+            <item
+                android:id="@+id/action_close"
+                android:title="@string/action_close"
+                android:icon="@drawable/ic_close"
+                app:iconTint="@color/colorIcon"/>
+            <item
+                android:id="@+id/action_close_others"
+                android:title="@string/action_close_others"
+                android:icon="@drawable/ic_row_others"
+                app:iconTint="@color/colorIcon" />
+            <item
+                android:id="@+id/action_close_all"
+                android:title="@string/action_close_all"
+                android:icon="@drawable/ic_row_all"
+                app:iconTint="@color/colorIcon"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/action_menu_edit"
+        android:title="@string/menu_edit"
+        android:icon="@drawable/ic_edit"
+        app:iconTint="@color/colorIcon">
+        <menu>
+            <item
+                android:id="@+id/menu_edit_cut"
+                android:title="@string/menu_edit_cut"
+                android:icon="@drawable/ic_cut"
+                app:iconTint="@color/colorIcon"/>
+            <item
+                android:id="@+id/menu_edit_copy"
+                android:title="@string/menu_edit_copy"
+                android:icon="@drawable/ic_copy"
+                app:iconTint="@color/colorIcon"/>
+            <item
+                android:id="@+id/menu_edit_paste"
+                android:title="@string/menu_edit_paste"
+                android:icon="@drawable/ic_paste"
+                app:iconTint="@color/colorIcon"/>
+            <item
+                android:id="@+id/menu_edit_selectAll"
+                android:title="@string/menu_edit_selectAll"
+                android:icon="@drawable/ic_select_all"
+                app:iconTint="@color/colorIcon"/>
+            <item
+                android:id="@+id/menu_edit_selectLine"
+                android:title="@string/menu_edit_selectLine"
+                android:icon="@drawable/ic_line_select"
+                app:iconTint="@color/colorIcon"/>
+            <item
+                android:id="@+id/menu_edit_deleteLine"
+                android:title="@string/menu_edit_deleteLine"
+                android:icon="@drawable/ic_minus"
+                app:iconTint="@color/colorIcon"/>
+            <item
+                android:id="@+id/menu_edit_duplicateLine"
+                android:title="@string/menu_edit_duplicateLine"
+                android:icon="@drawable/ic_line_duplicate"
+                app:iconTint="@color/colorIcon"/>
+        </menu>
+    </item>
+
     <item
         android:id="@+id/action_menu_search"
         android:title="@string/menu_overflow_search"

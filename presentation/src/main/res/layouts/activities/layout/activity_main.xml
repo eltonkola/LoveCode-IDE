@@ -65,21 +65,74 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_toLeftOf="@id/action_menu_file"
-                    android:padding="10.5dp"
-                    android:visibility="gone"
+                    android:layout_toLeftOf="@id/separator1"
+                    android:padding="10dp"
+                    android:visibility="visible"
                     android:src="@drawable/ic_save"
                     android:tint="@android:color/white"
                     android:background="@drawable/ripple_20dp"
                     android:id="@+id/action_menu_save"
                     android:contentDescription="@string/description_icon"/>
 
+                <View
+                    android:id="@+id/separator1"
+                    android:layout_centerVertical="true"
+                    android:layout_width="0.5dp"
+                    android:layout_height="18dp"
+                    android:background="#94BBBBBB"
+                    android:layout_toLeftOf="@id/action_menu_cut"
+                    />
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_toLeftOf="@id/action_menu_copy"
+                    android:padding="10dp"
+                    android:visibility="visible"
+                    android:src="@drawable/ic_cut"
+                    android:tint="@android:color/white"
+                    android:background="@drawable/ripple_20dp"
+                    android:id="@+id/action_menu_cut"
+                    android:contentDescription="@string/description_icon"/>
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_toLeftOf="@id/action_menu_paste"
+                    android:padding="10dp"
+                    android:visibility="visible"
+                    android:src="@drawable/ic_copy"
+                    android:tint="@android:color/white"
+                    android:background="@drawable/ripple_20dp"
+                    android:id="@+id/action_menu_copy"
+                    android:contentDescription="@string/description_icon"/>
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_toLeftOf="@id/separator2"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_paste"
+                    android:tint="@android:color/white"
+                    android:background="@drawable/ripple_20dp"
+                    android:id="@+id/action_menu_paste"
+                    android:contentDescription="@string/description_icon"/>
+
+                <View
+                    android:id="@+id/separator2"
+                    android:layout_centerVertical="true"
+                    android:layout_width="0.5dp"
+                    android:layout_height="18dp"
+                    android:background="#94BBBBBB"
+                    android:layout_toLeftOf="@id/action_menu_file"
+                    />
+
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_toLeftOf="@id/action_menu_edit"
-                    android:padding="10.5dp"
-                    android:visibility="visible"
+                    android:padding="10dp"
+                    android:visibility="gone"
                     android:src="@drawable/ic_folder"
                     android:tint="@android:color/white"
                     android:background="@drawable/ripple_20dp"
@@ -90,8 +143,8 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_toLeftOf="@id/action_menu_search"
-                    android:padding="10.5dp"
-                    android:visibility="visible"
+                    android:padding="10dp"
+                    android:visibility="gone"
                     android:src="@drawable/ic_edit"
                     android:tint="@android:color/white"
                     android:background="@drawable/ripple_20dp"
@@ -102,7 +155,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_toLeftOf="@id/action_menu_tools"
-                    android:padding="10.5dp"
+                    android:padding="10dp"
                     android:visibility="gone"
                     android:src="@drawable/ic_file_search"
                     android:tint="@android:color/white"
@@ -113,8 +166,8 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_toLeftOf="@id/action_menu_undo"
-                    android:padding="10.5dp"
+                    android:layout_toLeftOf="@id/separator3"
+                    android:padding="10dp"
                     android:visibility="gone"
                     android:src="@drawable/ic_tools"
                     android:tint="@android:color/white"
@@ -122,11 +175,21 @@
                     android:id="@+id/action_menu_tools"
                     android:contentDescription="@string/description_icon"/>
 
+                <View
+                    android:visibility="gone"
+                    android:id="@+id/separator3"
+                    android:layout_centerVertical="true"
+                    android:layout_width="0.5dp"
+                    android:layout_height="18dp"
+                    android:background="#94BBBBBB"
+                    android:layout_toLeftOf="@id/action_menu_undo"
+                    />
+
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_toLeftOf="@id/action_menu_redo"
-                    android:padding="10.5dp"
+                    android:padding="10dp"
                     android:visibility="visible"
                     android:src="@drawable/ic_undo"
                     android:tint="@{viewModel.canUndo ? @android:color/white : @color/colorIcon}"
@@ -138,8 +201,8 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_toLeftOf="@id/action_menu_run"
-                    android:padding="10.5dp"
+                    android:layout_toLeftOf="@id/separator4"
+                    android:padding="10dp"
                     android:visibility="visible"
                     android:src="@drawable/ic_redo"
                     android:tint="@{viewModel.canRedo ? @android:color/white : @color/colorIcon}"
@@ -148,11 +211,20 @@
                     android:clickable="@{viewModel.canRedo}"
                     android:contentDescription="@string/description_icon"/>
 
+                <View
+                    android:id="@+id/separator4"
+                    android:layout_centerVertical="true"
+                    android:layout_width="0.5dp"
+                    android:layout_height="18dp"
+                    android:background="#94BBBBBB"
+                    android:layout_toLeftOf="@id/action_menu_run"
+                    />
+
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_toLeftOf="@id/action_menu_overflow"
-                    android:padding="10.5dp"
+                    android:layout_toLeftOf="@id/separator5"
+                    android:padding="10dp"
                     android:visibility="visible"
                     android:src="@drawable/ic_play"
                     android:tint="@{viewModel.canRun ? @android:color/white : @color/colorIcon}"
@@ -161,11 +233,20 @@
                     android:clickable="@{viewModel.canRun}"
                     android:contentDescription="@string/description_icon" />
 
+                <View
+                    android:id="@+id/separator5"
+                    android:layout_centerVertical="true"
+                    android:layout_width="0.5dp"
+                    android:layout_height="18dp"
+                    android:background="#94BBBBBB"
+                    android:layout_toLeftOf="@id/action_menu_overflow"
+                    />
+
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_alignParentRight="true"
-                    android:padding="10.5dp"
+                    android:padding="10dp"
                     android:visibility="visible"
                     android:src="@drawable/ic_overflow"
                     android:tint="@android:color/white"
@@ -174,6 +255,7 @@
                     android:contentDescription="@string/description_icon"/>
 
             </RelativeLayout>
+
 
             <com.google.android.material.tabs.TabLayout
                 android:layout_width="match_parent"

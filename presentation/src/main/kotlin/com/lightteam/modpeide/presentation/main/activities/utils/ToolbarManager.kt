@@ -48,6 +48,10 @@ class ToolbarManager(
         binding.actionMenuDrawer.setOnClickListener { listener.onDrawerButton() }
         binding.actionMenuSave.setOnClickListener { listener.onSaveButton() }
 
+        binding.actionMenuCut.setOnClickListener { listener.onCutButton() }
+        binding.actionMenuCopy.setOnClickListener { listener.onCopyButton() }
+        binding.actionMenuPaste.setOnClickListener { listener.onPasteButton() }
+
         setMenuClickListener(binding.actionMenuFile, R.menu.menu_file)
         setMenuClickListener(binding.actionMenuEdit, R.menu.menu_edit)
         setMenuClickListener(binding.actionMenuSearch, R.menu.menu_search)
@@ -61,17 +65,24 @@ class ToolbarManager(
     }
 
     private fun portrait(): Int {
-        binding.actionMenuSave.visibility = View.GONE
         binding.actionMenuSearch.visibility = View.GONE
         binding.actionMenuTools.visibility = View.GONE
+        binding.actionMenuFile.visibility = View.GONE
+        binding.actionMenuEdit.visibility = View.GONE
+        binding.separator3.visibility = View.GONE
+
         setMenuClickListener(binding.actionMenuOverflow, R.menu.menu_overflow_vertical)
         return Configuration.ORIENTATION_PORTRAIT
     }
 
     private fun landscape(): Int {
-        binding.actionMenuSave.visibility = View.VISIBLE
+
         binding.actionMenuSearch.visibility = View.VISIBLE
         binding.actionMenuTools.visibility = View.VISIBLE
+        binding.actionMenuFile.visibility = View.VISIBLE
+        binding.actionMenuEdit.visibility = View.VISIBLE
+        binding.separator3.visibility = View.VISIBLE
+
         setMenuClickListener(binding.actionMenuOverflow, R.menu.menu_overflow_horizontal)
         return Configuration.ORIENTATION_LANDSCAPE
     }
