@@ -23,19 +23,6 @@ import dagger.android.support.DaggerApplication
 
 class BaseApplication : DaggerApplication() {
 
-    companion object Package {
-        const val STANDARD = "com.KillerBLS.modpeide"
-        const val ULTIMATE = "com.LightTeam.modpeidepro"
-    }
-
-    val isUltimate: Boolean by lazy {
-        when (packageName) {
-            STANDARD -> false
-            ULTIMATE -> true
-            else -> false
-        }
-    }
-
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         return DaggerAppComponent
             .factory()

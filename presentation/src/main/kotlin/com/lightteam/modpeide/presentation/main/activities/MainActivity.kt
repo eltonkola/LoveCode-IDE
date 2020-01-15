@@ -53,7 +53,6 @@ import com.lightteam.modpeide.R
 import com.lightteam.modpeide.databinding.ActivityMainBinding
 import com.lightteam.modpeide.domain.model.DocumentModel
 import com.lightteam.modpeide.presentation.base.activities.BaseActivity
-import com.lightteam.modpeide.presentation.common.dialogs.DialogStore
 import com.lightteam.modpeide.presentation.main.activities.interfaces.OnPanelClickListener
 import com.lightteam.modpeide.presentation.main.activities.utils.ToolbarManager
 import com.lightteam.modpeide.presentation.main.customview.ExtendedKeyboard
@@ -71,7 +70,6 @@ import io.reactivex.rxkotlin.addTo
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
 import org.love2d.android.GameActivity
 import java.io.File
-import java.lang.Exception
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(),
@@ -594,40 +592,32 @@ class MainActivity : BaseActivity(),
     }
 
     override fun onCodeAnalysisButton() {
-        if(viewModel.isUltimate()) {
-            val position = binding.tabDocumentLayout.selectedTabPosition
-            if(position != -1) {
-                viewModel.analyze(viewModel.getDocument(position)!!.name, binding.editor.getFacadeText())
-            } else {
-                viewModel.toastEvent.value = R.string.message_no_open_files
-            }
+        val position = binding.tabDocumentLayout.selectedTabPosition
+        if(position != -1) {
+            viewModel.analyze(viewModel.getDocument(position)!!.name, binding.editor.getFacadeText())
         } else {
-            DialogStore.Builder(this).show()
+            viewModel.toastEvent.value = R.string.message_no_open_files
         }
     }
 
     override fun onInsertColorButton() {
-        if(viewModel.isUltimate()) {
-            val position = binding.tabDocumentLayout.selectedTabPosition
-            if(position != -1) {
-                MaterialDialog(this).show {
-                    title(R.string.dialog_title_color_picker)
-                    colorChooser(
-                        colors = ColorPalette.Primary,
-                        subColors = ColorPalette.PrimarySub,
-                        allowCustomArgb = true,
-                        showAlphaSelector = true
-                    ) { _, color ->
-                        binding.editor.insert(color.toHexString())
-                    }
-                    positiveButton(R.string.action_insert)
-                    negativeButton(R.string.action_cancel)
+        val position = binding.tabDocumentLayout.selectedTabPosition
+        if(position != -1) {
+            MaterialDialog(this).show {
+                title(R.string.dialog_title_color_picker)
+                colorChooser(
+                    colors = ColorPalette.Primary,
+                    subColors = ColorPalette.PrimarySub,
+                    allowCustomArgb = true,
+                    showAlphaSelector = true
+                ) { _, color ->
+                    binding.editor.insert(color.toHexString())
                 }
-            } else {
-                viewModel.toastEvent.value = R.string.message_no_open_files
+                positiveButton(R.string.action_insert)
+                negativeButton(R.string.action_cancel)
             }
         } else {
-            DialogStore.Builder(this).show()
+            viewModel.toastEvent.value = R.string.message_no_open_files
         }
     }
 

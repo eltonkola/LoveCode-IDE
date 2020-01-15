@@ -21,12 +21,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.lightteam.modpeide.data.storage.keyvalue.PreferenceHandler
 import com.lightteam.modpeide.domain.providers.SchedulersProvider
-import com.lightteam.modpeide.utils.commons.VersionChecker
 
 class SettingsViewModelFactory(
     private val schedulersProvider: SchedulersProvider,
-    private val preferenceHandler: PreferenceHandler,
-    private val versionChecker: VersionChecker
+    private val preferenceHandler: PreferenceHandler
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -35,8 +33,7 @@ class SettingsViewModelFactory(
             modelClass === SettingsViewModel::class.java ->
                 SettingsViewModel(
                     schedulersProvider,
-                    preferenceHandler,
-                    versionChecker
+                    preferenceHandler
                 ) as T
             else -> null as T
         }

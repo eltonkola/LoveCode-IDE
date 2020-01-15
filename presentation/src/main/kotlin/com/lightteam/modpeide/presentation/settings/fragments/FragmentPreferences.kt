@@ -84,28 +84,6 @@ class FragmentPreferences : DaggerPreferenceFragmentCompat() {
         return super.onPreferenceTreeClick(preference)
     }
 
-    override fun setPreferencesFromResource(preferencesResId: Int, key: String?) {
-        super.setPreferencesFromResource(preferencesResId, key)
-        if(!viewModel.isUltimate()) {
-            when(key) {
-                KEY_APPLICATION -> {
-                    findPreference<Preference>(KEY_THEME)?.isEnabled = false
-                }
-                KEY_EDITOR -> {
-                    findPreference<Preference>(KEY_FONT_TYPE)?.isEnabled = false
-                    findPreference<Preference>(KEY_TAB_LIMIT)?.isEnabled = false
-                }
-                KEY_CODE_STYLE -> {
-                    findPreference<Preference>(KEY_AUTOCLOSE_QUOTES)?.isEnabled = false
-                }
-                KEY_ABOUT -> {
-                    findPreference<Preference>(KEY_ABOUT_AND_CHANGELOG)
-                        ?.setTitle(R.string.pref_about_standard_title)
-                }
-            }
-        }
-    }
-
     private fun setupObservers() {
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {

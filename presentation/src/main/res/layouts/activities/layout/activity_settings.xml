@@ -49,27 +49,6 @@
             android:tag="fragment_preferences"
             android:name="com.lightteam.modpeide.presentation.settings.fragments.FragmentPreferences"/>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:background="@color/colorNavigationBar"
-            android:visibility="@{viewModel.isUltimate() ? View.GONE : View.VISIBLE}"
-            android:elevation="2dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:background="?attr/selectableItemBackground"
-                android:textColor="@color/colorAccent"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:text="@string/action_unlock_all_features"
-                android:id="@+id/button_unlock_features"/>
-
-        </FrameLayout>
-
     </LinearLayout>
 
 </layout>

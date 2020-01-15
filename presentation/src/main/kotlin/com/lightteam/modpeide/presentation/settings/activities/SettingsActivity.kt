@@ -24,7 +24,6 @@ import androidx.lifecycle.Observer
 import com.lightteam.modpeide.R
 import com.lightteam.modpeide.databinding.ActivitySettingsBinding
 import com.lightteam.modpeide.presentation.base.activities.BaseActivity
-import com.lightteam.modpeide.presentation.common.dialogs.DialogStore
 import com.lightteam.modpeide.presentation.settings.viewmodel.SettingsViewModel
 import javax.inject.Inject
 
@@ -50,9 +49,6 @@ class SettingsActivity : BaseActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
-        }
-        binding.buttonUnlockFeatures.setOnClickListener {
-            DialogStore.Builder(this).show()
         }
     }
 

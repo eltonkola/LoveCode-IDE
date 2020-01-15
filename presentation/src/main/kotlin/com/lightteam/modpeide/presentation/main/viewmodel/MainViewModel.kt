@@ -43,7 +43,6 @@ import com.lightteam.modpeide.presentation.base.viewmodel.BaseViewModel
 import com.lightteam.modpeide.presentation.main.adapters.DocumentAdapter
 import com.lightteam.modpeide.presentation.main.customview.TextProcessor
 import com.lightteam.modpeide.utils.theming.ThemeFactory
-import com.lightteam.modpeide.utils.commons.VersionChecker
 import com.lightteam.modpeide.utils.event.SingleLiveEvent
 import io.reactivex.Completable
 import io.reactivex.rxkotlin.Singles
@@ -57,8 +56,7 @@ class MainViewModel(
     private val schedulersProvider: SchedulersProvider,
     private val preferenceHandler: PreferenceHandler,
     private val cacheHandler: CacheHandler,
-    private val documentAdapter: DocumentAdapter,
-    private val versionChecker: VersionChecker
+    private val documentAdapter: DocumentAdapter
 ) : BaseViewModel() {
 
     companion object {
@@ -493,8 +491,6 @@ class MainViewModel(
     // endregion EDITOR
 
     // region PREFERENCES
-
-    fun isUltimate(): Boolean = versionChecker.isUltimate
 
     fun observePreferences() {
 

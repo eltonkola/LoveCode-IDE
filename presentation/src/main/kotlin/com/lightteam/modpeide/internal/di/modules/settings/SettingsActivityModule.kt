@@ -24,7 +24,6 @@ import com.lightteam.modpeide.internal.di.scopes.PerActivity
 import com.lightteam.modpeide.presentation.settings.activities.SettingsActivity
 import com.lightteam.modpeide.presentation.settings.viewmodel.SettingsViewModel
 import com.lightteam.modpeide.presentation.settings.viewmodel.SettingsViewModelFactory
-import com.lightteam.modpeide.utils.commons.VersionChecker
 import dagger.Module
 import dagger.Provides
 
@@ -34,9 +33,8 @@ class SettingsActivityModule {
     @Provides
     @PerActivity
     fun provideSettingsViewModelFactory(schedulersProvider: SchedulersProvider,
-                                        preferenceHandler: PreferenceHandler,
-                                        versionChecker: VersionChecker): SettingsViewModelFactory
-            = SettingsViewModelFactory(schedulersProvider, preferenceHandler, versionChecker)
+                                        preferenceHandler: PreferenceHandler): SettingsViewModelFactory
+            = SettingsViewModelFactory(schedulersProvider, preferenceHandler)
 
     @Provides
     @PerActivity

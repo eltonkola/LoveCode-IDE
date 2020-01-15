@@ -24,7 +24,6 @@ import com.f2prateek.rx.preferences2.RxSharedPreferences
 import com.lightteam.modpeide.BaseApplication
 import com.lightteam.modpeide.data.storage.keyvalue.PreferenceHandler
 import com.lightteam.modpeide.domain.providers.SchedulersProvider
-import com.lightteam.modpeide.utils.commons.VersionChecker
 import com.lightteam.modpeide.internal.di.scopes.PerApplication
 import com.lightteam.modpeide.internal.providers.SchedulersProviderImpl
 import dagger.Module
@@ -58,8 +57,4 @@ class AppModule {
     fun providePreferenceHandler(rxSharedPreferences: RxSharedPreferences): PreferenceHandler
             = PreferenceHandler(rxSharedPreferences)
 
-    @Provides
-    @PerApplication
-    fun provideVersionChecker(application: BaseApplication): VersionChecker
-            = VersionChecker(application.isUltimate)
 }

@@ -36,8 +36,8 @@ class ExtendedKeyboard(context: Context, attributeSet: AttributeSet) : RecyclerV
 
     fun setKeyListener(keyListener: OnKeyListener) {
         keyAdapter = KeyAdapter(keyListener)
-        keyAdapter.keys = arrayOf("{", "}", "(", ")", ";", ",", ".", "=", "\\", "|",
-            "&", "!", "[", "]", "<", ">", "+", "-", "/", "*", "?", ":", "_")
+        keyAdapter.keys = arrayOf("   ", "-- ", "(", ")", "=", "[", "]", "+", ",", ".","&", "!",
+            "-", "/", "*", "?", ":", "_", "\\", "|", "<", ">",  "{", "}", ";")
         adapter = keyAdapter
         adapter?.notifyDataSetChanged()
     }

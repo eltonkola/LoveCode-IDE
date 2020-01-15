@@ -21,14 +21,12 @@ import com.lightteam.modpeide.data.storage.keyvalue.PreferenceHandler
 import com.lightteam.modpeide.data.utils.extensions.schedulersIoToMain
 import com.lightteam.modpeide.domain.providers.SchedulersProvider
 import com.lightteam.modpeide.presentation.base.viewmodel.BaseViewModel
-import com.lightteam.modpeide.utils.commons.VersionChecker
 import com.lightteam.modpeide.utils.event.SingleLiveEvent
 import io.reactivex.rxkotlin.subscribeBy
 
 class SettingsViewModel(
     private val schedulersProvider: SchedulersProvider,
-    private val preferenceHandler: PreferenceHandler,
-    private val versionChecker: VersionChecker
+    private val preferenceHandler: PreferenceHandler
 ) : BaseViewModel() {
 
     val fullscreenEvent: SingleLiveEvent<Boolean> = SingleLiveEvent()
@@ -43,5 +41,4 @@ class SettingsViewModel(
             .disposeOnViewModelDestroy()
     }
 
-    fun isUltimate(): Boolean = versionChecker.isUltimate
 }
