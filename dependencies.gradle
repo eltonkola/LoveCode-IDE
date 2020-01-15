@@ -23,8 +23,8 @@ ext {
             build_tools = '28.0.3'
     ]
     globalConfig = [
-            versionCode = 10022,
-            versionName = '2019.1.2',
+            versionCode = 202010,
+            versionName = '2020.1.0',
             standardVName = "$versionName Standard Edition",
             ultimateVName = "$versionName Ultimate Edition",
             testRunner = 'androidx.test.runner.AndroidJUnitRunner'

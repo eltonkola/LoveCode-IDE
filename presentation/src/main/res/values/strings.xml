@@ -157,7 +157,7 @@
     <string name="pref_header_files_title">Files</string>
     <string name="pref_header_files_summary">Configure how files are handled.</string>
     <string name="pref_header_about_title">About</string>
-    <string name="pref_header_about_summary">View information about ModPE IDE.</string>
+    <string name="pref_header_about_summary">View information about Love Code Ide.</string>
 
     <string name="pref_category_look_and_feel">Look And Feel</string>
     <string name="pref_category_other">Other</string>
@@ -175,7 +175,7 @@
     <string name="pref_fullscreen_title">Full screen</string>
     <string name="pref_fullscreen_summary">Launch the application in full screen mode.</string>
     <string name="pref_confirm_exit_title">Confirm exit from the app</string>
-    <string name="pref_confirm_exit_summary">If you press back, ModPE IDE ask for confirmation to exit.</string>
+    <string name="pref_confirm_exit_summary">If you press back, Love Code IDE ask for confirmation to exit.</string>
     <string name="pref_font_size_title">Editor font size</string>
     <string name="pref_font_size_summary">Specify the default font size of editor.</string>
     <string name="pref_font_type_title">Editor font type</string>
@@ -210,9 +210,8 @@
     <string name="pref_foldersOnTop_title">Folders on top</string>
     <string name="pref_foldersOnTop_summary">Folders will be displayed on top.</string>
     <string name="pref_sortMode_title">Sort Mode</string>
-    <string name="pref_about_standard_title">ModPE IDE - Standard Edition</string>
-    <string name="pref_about_ultimate_title">ModPE IDE - Ultimate Edition</string>
-    <string name="pref_about_summary">Copyright 2019 Light Team Software\nAll right reserved\n\nVersion: &app_version; (&app_code;)</string>
+    <string name="pref_about_title">Love Code IDE</string>
+    <string name="pref_about_summary">Copyright 2019 Elton Kola  \nAll right reserved\n\nVersion: &app_version; (&app_code;) \n Based on the open source project ModPe Ide</string>
     <string name="pref_privacy_policy_title">Privacy Policy</string>
     <string name="pref_contribute_title">Contribute to development</string>
     <string name="pref_contribute_summary">You can create an issue on GitHub or translate the app to your native language.\n\nThank you!</string>
