@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/data/data.iml" filepath="$PROJECT_DIR$/data/data.iml" />
       <module fileurl="file://$PROJECT_DIR$/domain/domain.iml" filepath="$PROJECT_DIR$/domain/domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/eltongit-ModPE-IDE-Source.iml" filepath="$PROJECT_DIR$/eltongit-ModPE-IDE-Source.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lovedocs/lovedocs.iml" filepath="$PROJECT_DIR$/lovedocs/lovedocs.iml" />
       <module fileurl="file://$PROJECT_DIR$/presentation/presentation.iml" filepath="$PROJECT_DIR$/presentation/presentation.iml" />
     </modules>
   </component>

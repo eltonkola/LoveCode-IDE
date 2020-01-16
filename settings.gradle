@@ -15,4 +15,4 @@
  * limitations under the License.
  */
 
-include ':app-ultimate', ':presentation', ':domain', ':data'
+include ':app-ultimate', ':presentation', ':domain', ':data', ':lovedocs'

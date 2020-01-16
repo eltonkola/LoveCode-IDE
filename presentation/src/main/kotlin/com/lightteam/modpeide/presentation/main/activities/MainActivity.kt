@@ -47,6 +47,7 @@ import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.customview.getCustomView
 import com.afollestad.materialdialogs.input.getInputField
 import com.afollestad.materialdialogs.input.input
+import com.eltonkola.lovedocs.DocLoader
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.textfield.TextInputEditText
 import com.lightteam.modpeide.R
@@ -100,6 +101,8 @@ class MainActivity : BaseActivity(),
         checkPermissions()
 
 
+//        val docs = DocLoader().getDocs(this)
+//        Toast.makeText(this, "Docs: ${docs.version}", Toast.LENGTH_LONG).show()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
