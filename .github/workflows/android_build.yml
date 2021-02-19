@@ -16,4 +16,10 @@ jobs:
         with:
           name: app
           path: app-ultimate/build/outputs/apk/debug/app-ultimate-debug.apk
-        
+    
+      - name: Upload to slack step
+        uses: adrey/slack-file-upload-action@master
+        with:
+          token: ${{ secrets.SLACK_TOKEN }}
+          path: app-ultimate/build/outputs/apk/debug/app-ultimate-debug.apk
+          channel: random
