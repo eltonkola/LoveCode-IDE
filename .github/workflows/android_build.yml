@@ -16,10 +16,13 @@ jobs:
         with:
           name: app
           path: app-ultimate/build/outputs/apk/debug/app-ultimate-debug.apk
-    
+
       - name: Upload to slack step
-        uses: adrey/slack-file-upload-action@master
+        uses: MeilCli/slack-upload-file@v1
         with:
-          token: ${{ secrets.SLACK_TOKEN }}
-          path: app-ultimate/build/outputs/apk/debug/app-ultimate-debug.apk
-          channel: random
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          channels: random
+          file_path: 'app-ultimate/build/outputs/apk/debug/'
+          file_name: 'lapp-ultimate-debug.apk'
+          file_type: 'apk'
+          initial_comment: 'post by slack-upload-file'
