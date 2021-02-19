@@ -22,7 +22,7 @@ jobs:
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
           channels: random
-          file_path: 'app-ultimate/build/outputs/apk/debug/'
-          file_name: 'lapp-ultimate-debug.apk'
+          file_path: 'app-ultimate/build/outputs/apk/debug/lapp-ultimate-debug.apk'
+          file_name: 'loveCodeIde.apk'
           file_type: 'apk'
           initial_comment: 'post by slack-upload-file'
