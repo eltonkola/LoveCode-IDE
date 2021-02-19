@@ -26,3 +26,13 @@ jobs:
           file_name: 'loveCodeIde.apk'
           file_type: 'apk'
           initial_comment: 'post by slack-upload-file'
+          
+      - name: Create release and upload apk
+        uses: underwindfall/create-release-with-debugapk@v2.0.0
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v1.0.0
+          asset_path: app-ultimate/build/outputs/apk/debug/app-ultimate-debug.apk
+          asset_name: loveCodeIde.apk
+          asset_content_type: application/zip
